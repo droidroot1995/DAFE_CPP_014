@@ -59,6 +59,7 @@ Token Token_stream::get ()
 {//Token create
     if (full)
     { //Checking if Token in the buffer
+
         full = false;
         return buffer;
     }
@@ -136,10 +137,22 @@ public:
     { }
 };
 
-vector<Variable> var_table;
 
-double get_value (string s)
+class Symbol_table{
+private:
+    vector<Variable> var_table;
+public:
+    double get_value (string s);
+    void set_value (string s, double d);
+    bool is_declared (string s);
+    double define_name (string var, double val, bool con);
+    void print_values();
+};
+
+
+double Symbol_table::get_value (string s)
 {//Returns the value of a variable named s
+
     for (int i = 0; i < (int)var_table.size(); ++i)
         if (var_table[i].name == s)
             return var_table[i].value;
@@ -147,7 +160,7 @@ double get_value (string s)
     error("get: undefined name ", s);
 }
 
-void set_value (string s, double d)
+void Symbol_table::set_value (string s, double d)
 {
     for (int i = 0; i < (int)var_table.size(); ++i)
     {
@@ -161,14 +174,15 @@ void set_value (string s, double d)
     error("set: undefined name ", s);
 }
 
-bool is_declared (string s)
+bool Symbol_table::is_declared (string s)
 {// Is s in vector var_table
+
     for (int i = 0; i < (int)var_table.size(); ++i)
         if (var_table[i].name == s) return true;
     return false;
 }
 
-double define_name (string var, double val, bool is_const)
+double Symbol_table::define_name (string var, double val, bool is_const)
 {//Append (var,val) in vecrot var_table
     if (is_declared(var))
         error(var, " declared twice");
@@ -185,7 +199,9 @@ double expression ();
 
 double primary ()
 {
+    Symbol_table s_table;
     Token t = ts.get();
+
     switch (t.kind)
     {
     case '(':
@@ -208,15 +224,15 @@ double primary ()
     case name: {
         Token tkn = ts.get();
         if (tkn.kind == '='){
-                double d = expression();
-                set_value(t.name, d);
-                return d;
-            }
-            else{
-                ts.putback(tkn);
-                return get_value(t.name);
-            }
+            double d = expression();
+            s_table.set_value(t.name, d);
+            return d;
         }
+        else{
+            ts.putback(tkn);
+            return s_table.get_value(t.name);
+        }
+    }
     default:
         error("primary expected");
     }
@@ -288,19 +304,21 @@ double expression ()
 
 double declaration ()
 {
+    Symbol_table s_table;
     Token t = ts.get();
+
     if (t.kind != name)
         error("name expected in declaration");
 
     string var = t.name;
-    if (is_declared(var))
+    if (s_table.is_declared(var))
         error(var, " declared twice");
 
     t = ts.get();
     if (t.kind != '=')
         error("'=' missing in declaration of ", var);
 
-    return define_name (var, expression(), t.name == "e" || t.name == "pi" ? true:false);
+    return s_table.define_name (var, expression(), t.name == "e" || t.name == "pi" ? true:false);
 }
 
 
@@ -327,7 +345,7 @@ void clean_up_mess ()
 void calculate ()
 {
     while (cin)
-    try
+        try
     {
         cout << prompt;
         Token t = ts.get();
@@ -346,26 +364,28 @@ void calculate ()
 }
 
 
-int main ()
-try
-{
-    define_name("pi", 3.141592653589793, true);
-    define_name("e",  2.718281828459045, true);
+int main () {
+    Symbol_table s_table;
+    try
+    {
+        s_table.define_name("pi", 3.141592653589793, true);
+        s_table.define_name("e",  2.718281828459045, true);
 
-    calculate();
+        calculate();
 
-    keep_window_open();
-    return 0;
-}
-catch (exception& e)
-{
-    cerr << "exception: " << e.what() << endl;
-    keep_window_open("~~");
-    return 1;
-}
-catch (...)
-{
-    cerr << "Unknown exception!" << endl;
-    keep_window_open("~~");
-    return 2;
+        keep_window_open();
+        return 0;
+    }
+    catch (exception& e)
+    {
+        cerr << "exception: " << e.what() << endl;
+        keep_window_open("~~");
+        return 1;
+    }
+    catch (...)
+    {
+        cerr << "Unknown exception!" << endl;
+        keep_window_open("~~");
+        return 2;
+    }
 }
