@@ -129,9 +129,10 @@ class Variable
 public:
     string name;
     double value;
+    bool is_const;
 
-    Variable (string n, double v)
-        : name{ n }, value{ v }
+    Variable (string n, double v, bool isconst)
+        : name{ n }, value{ v }, is_const{ isconst }
     { }
 };
 
@@ -139,7 +140,7 @@ vector<Variable> var_table;
 
 double get_value (string s)
 {//Returns the value of a variable named s
-    for (int i = 0; i < var_table.size(); ++i)
+    for (int i = 0; i < (int)var_table.size(); ++i)
         if (var_table[i].name == s)
             return var_table[i].value;
 
@@ -148,9 +149,9 @@ double get_value (string s)
 
 void set_value (string s, double d)
 {
-    for (int i = 0; i < var_table.size(); ++i)
+    for (int i = 0; i < (int)var_table.size(); ++i)
     {
-        if (var_table[i].name == s)
+        if (var_table[i].name == s && !var_table[i].is_const)
         {
             var_table[i].value = d;
             return;
@@ -162,17 +163,17 @@ void set_value (string s, double d)
 
 bool is_declared (string s)
 {// Is s in vector var_table
-    for (int i = 0; i < var_table.size(); ++i)
+    for (int i = 0; i < (int)var_table.size(); ++i)
         if (var_table[i].name == s) return true;
     return false;
 }
 
-double define_name (string var, double val)
+double define_name (string var, double val, bool is_const)
 {//Append (var,val) in vecrot var_table
     if (is_declared(var))
         error(var, " declared twice");
 
-    var_table.push_back (Variable{ var, val });
+    var_table.push_back (Variable{ var, val, is_const});
 
     return val;
 }
@@ -204,9 +205,18 @@ double primary ()
     case number:
         return t.value;
 
-    case name:
-        return get_value(t.name);
-
+    case name: {
+        Token tkn = ts.get();
+        if (tkn.kind == '='){
+                double d = expression();
+                set_value(t.name, d);
+                return d;
+            }
+            else{
+                ts.putback(tkn);
+                return get_value(t.name);
+            }
+        }
     default:
         error("primary expected");
     }
@@ -290,7 +300,7 @@ double declaration ()
     if (t.kind != '=')
         error("'=' missing in declaration of ", var);
 
-    return define_name (var, expression());
+    return define_name (var, expression(), t.name == "e" || t.name == "pi" ? true:false);
 }
 
 
@@ -339,8 +349,8 @@ void calculate ()
 int main ()
 try
 {
-    define_name("pi", 3.141592653589793);
-    define_name("e",  2.718281828459045);
+    define_name("pi", 3.141592653589793, true);
+    define_name("e",  2.718281828459045, true);
 
     calculate();
 
