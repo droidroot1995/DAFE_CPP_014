@@ -52,6 +52,7 @@ constexpr char let = 'L';
 
 const string prompt = "> ";
 const string result = "= ";
+const string constkey = "const";
 const string declkey = "let";
 
 
@@ -80,6 +81,9 @@ Token Token_stream::get ()
     case '%':
     case '=':
         return Token{ ch };
+
+    case '\n':
+        return Token { print };
 
     case '.':
     case '0': case '1': case '2': case '3': case '4':
