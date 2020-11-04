@@ -49,6 +49,7 @@ constexpr char print = ';';
 constexpr char number = '8';
 constexpr char name = 'a';
 constexpr char let = 'L';
+constexpr char const_variable = 'C';
 
 const string prompt = "> ";
 const string result = "= ";
@@ -106,6 +107,7 @@ Token Token_stream::get ()
             cin.putback(ch);
 
             if (s == declkey) return Token{ let };
+            if (s == constkey) return Token { const_variable };
 
             return Token{ name, s };
         }
@@ -123,7 +125,7 @@ void Token_stream::ignore (char c)
     }
     full = false;
 
-    char ch;
+    char ch; //getchar?
     while (cin >> ch)
         if (ch == c) return;
 }
@@ -143,18 +145,17 @@ public:
 
 
 class Symbol_table{
-private:
-    vector<Variable> var_table;
 public:
-    double get_value (string s);
-    void set_value (string s, double d);
-    bool is_declared (string s);
-    double define_name (string var, double val, bool con);
+    vector<Variable> var_table;
+    double get_value (const string &s);
+    void set_value (const string &s, const double &d);
+    bool is_declared (const string &s);
+    double define_name (const string &var, const double &val, const bool &con);
     void print_values();
 };
 
 
-double Symbol_table::get_value (string s)
+double Symbol_table::get_value (const string &s)
 {//Returns the value of a variable named s
 
     for (int i = 0; i < (int)var_table.size(); ++i)
@@ -164,7 +165,7 @@ double Symbol_table::get_value (string s)
     error("get: undefined name ", s);
 }
 
-void Symbol_table::set_value (string s, double d)
+void Symbol_table::set_value (const string &s, const double &d)
 {
     for (int i = 0; i < (int)var_table.size(); ++i)
     {
@@ -178,16 +179,18 @@ void Symbol_table::set_value (string s, double d)
     error("set: undefined name ", s);
 }
 
-bool Symbol_table::is_declared (string s)
+bool Symbol_table::is_declared (const string &s)
 {// Is s in vector var_table
 
     for (int i = 0; i < (int)var_table.size(); ++i)
         if (var_table[i].name == s) return true;
+
     return false;
 }
 
-double Symbol_table::define_name (string var, double val, bool is_const)
+double Symbol_table::define_name (const string &var, const double &val, const bool &is_const)
 {//Append (var,val) in vecrot var_table
+
     if (is_declared(var))
         error(var, " declared twice");
 
@@ -196,6 +199,7 @@ double Symbol_table::define_name (string var, double val, bool is_const)
     return val;
 }
 
+Symbol_table s_table;
 
 Token_stream ts;
 
@@ -203,7 +207,6 @@ double expression ();
 
 double primary ()
 {
-    Symbol_table s_table;
     Token t = ts.get();
 
     switch (t.kind)
@@ -306,9 +309,8 @@ double expression ()
 }
 
 
-double declaration ()
+double declaration (char kind)
 {
-    Symbol_table s_table;
     Token t = ts.get();
 
     if (t.kind != name)
@@ -322,7 +324,12 @@ double declaration ()
     if (t.kind != '=')
         error("'=' missing in declaration of ", var);
 
-    return s_table.define_name (var, expression(), t.name == "e" || t.name == "pi" ? true:false);
+    cout << kind << endl;
+
+    return s_table.define_name (var, expression(), t.name == "e" ||
+                                                   t.name == "pi" ||
+                                                   kind == const_variable ? true:false);
+
 }
 
 
@@ -332,7 +339,8 @@ double statement ()
     switch (t.kind)
     {
     case let:
-        return declaration();
+    case const_variable:
+        return declaration(t.kind);
     default:
         ts.putback(t);
         return expression();
@@ -369,7 +377,6 @@ void calculate ()
 
 
 int main () {
-    Symbol_table s_table;
     try
     {
         s_table.define_name("pi", 3.141592653589793, true);
