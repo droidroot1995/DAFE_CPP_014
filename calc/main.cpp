@@ -49,12 +49,14 @@ constexpr char print = ';';
 constexpr char number = '8';
 constexpr char name = 'a';
 constexpr char let = 'L';
+constexpr char help = 'H';
 constexpr char const_variable = 'C';
 
 const string prompt = "> ";
 const string result = "= ";
 const string constkey = "const";
 const string declkey = "let";
+const string helpkey = "help";
 
 
 Token Token_stream::get ()
@@ -72,6 +74,7 @@ Token Token_stream::get ()
     switch (ch)
     {
     case quit:
+    case help:
     case print:
     case '(':
     case ')':
@@ -108,6 +111,7 @@ Token Token_stream::get ()
 
             if (s == declkey) return Token{ let };
             if (s == constkey) return Token { const_variable };
+            if (s == helpkey) return Token { help };
 
             return Token{ name, s };
         }
@@ -324,8 +328,6 @@ double declaration (char kind)
     if (t.kind != '=')
         error("'=' missing in declaration of ", var);
 
-    cout << kind << endl;
-
     return s_table.define_name (var, expression(), t.name == "e" ||
                                                    t.name == "pi" ||
                                                    kind == const_variable ? true:false);
@@ -353,6 +355,11 @@ void clean_up_mess ()
     ts.ignore (print);
 }
 
+void ShowHelpMessage()
+{
+    cout << "help - help \n const pi,e; \n quit - quit" << endl;
+}
+
 
 void calculate ()
 {
@@ -364,6 +371,7 @@ void calculate ()
         while (t.kind == print)
             t = ts.get(); //Discarding output commands
         if (t.kind == quit) return;
+        if (t.kind == help) ShowHelpMessage();
 
         ts.putback(t);
         cout << result << statement() << endl;
