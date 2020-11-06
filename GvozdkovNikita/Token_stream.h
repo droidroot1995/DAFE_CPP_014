@@ -1,5 +1,7 @@
 #pragma once
 #include <Token.h>
+#include <iostream>
+#include <fstream>
 
 const string prompt = "> ";
 const string result = "= ";

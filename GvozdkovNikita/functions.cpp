@@ -166,6 +166,7 @@ void ShowHelpMessage()
 
 void calculate ()
 {
+    ifstream in("input.txt");
     while (cin)
         try
     {

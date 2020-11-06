@@ -1,5 +1,7 @@
 #pragma once
-#include"Variable.h"
+#include <iostream>
+#include <fstream>
+#include <Variable.h>
 #include"Token_stream.h"
 
 double expression ();

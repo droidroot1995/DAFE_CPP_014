@@ -1,4 +1,4 @@
-#include <Token_stream.h>
+#include <Token_stream.h>X
 
 void Token_stream::putback (Token t)
 {
@@ -12,15 +12,18 @@ void Token_stream::putback (Token t)
 
 Token Token_stream::get ()
 {//Token create
+    ifstream in("input.txt");
     if (full)
     { //Checking if Token in the buffer
 
         full = false;
         return buffer;
     }
-
-    char ch;
-    cin >> ch;
+    char buff[50];
+    in.getline(buff, 50);
+    cout << buff;
+    char ch = buff[0];
+    //cin >> ch;
 
     switch (ch)
     {

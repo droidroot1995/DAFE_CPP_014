@@ -15,3 +15,6 @@ HEADERS += \
     Variable.h \
     functions.h \
     std_lib_facilities.h
+
+DISTFILES += \
+    input.txt
