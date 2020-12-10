@@ -2,7 +2,7 @@
 #include <iostream>
 
 class Vector {
-    int vector_size; //размер вектора меняться не должен
+    int vector_size; 
     double* element_pointer;
 
 public:
