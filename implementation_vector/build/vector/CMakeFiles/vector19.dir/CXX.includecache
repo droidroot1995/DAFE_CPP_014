@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/davi/Documents/c++/projetos_curso/vetor/implementation_vector/vector/vector19.cpp
+../vector/vector19.hpp
+/home/davi/Documents/c++/projetos_curso/vetor/implementation_vector/vector/vector19.hpp
+exception
+-
+
+/home/davi/Documents/c++/projetos_curso/vetor/implementation_vector/vector/vector19.hpp
+initializer_list
+-
+memory
+-
+

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Site BuildName="(empty)"
+	BuildStamp="20201213-0926-Experimental"
+	Name="(empty)"
+	Generator="ctest-3.16.3"
+	CompilerName=""
+	CompilerVersion=""
+	OSName="Linux"
+	Hostname="davi-TP301UA"
+	OSRelease="5.4.0-56-generic"
+	OSVersion="#62-Ubuntu SMP Mon Nov 23 19:20:19 UTC 2020"
+	OSPlatform="x86_64"
+	Is64Bits="1"
+	VendorString="GenuineIntel"
+	VendorID="Intel Corporation"
+	FamilyID="6"
+	ModelID="78"
+	ProcessorCacheSize="3072"
+	NumberOfLogicalCPU="4"
+	NumberOfPhysicalCPU="2"
+	TotalVirtualMemory="2047"
+	TotalPhysicalMemory="5842"
+	LogicalProcessorsPerPhysical="2"
+	ProcessorClockFrequency="1849.01"
+	>
+	<Testing>
+		<StartDateTime>Dec 13 12:26 MSK</StartDateTime>
+		<StartTestTime>1607851594</StartTestTime>
+		<TestList>
+			<Test>./test/vector</Test>
+		</TestList>
+		<Test Status="notrun">
+			<Name>vector</Name>
+			<Path>./test</Path>
+			<FullName>./test/vector</FullName>
+			<FullCommandLine></FullCommandLine>
+			<Results>
+				<NamedMeasurement type="numeric/double" name="Processors">
+					<Value>1</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Completion Status">
+					<Value>Unable to find executable</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Command Line">
+					<Value></Value>
+				</NamedMeasurement>
+				<Measurement>
+					<Value>Unable to find executable: vector</Value>
+				</Measurement>
+			</Results>
+		</Test>
+		<EndDateTime>Dec 13 12:26 MSK</EndDateTime>
+		<EndTestTime>1607851594</EndTestTime>
+		<ElapsedMinutes>0</ElapsedMinutes>
+	</Testing>
+</Site>
