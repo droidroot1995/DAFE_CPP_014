@@ -1,0 +1,2 @@
+/usr/bin/ar qc libvector17.a  CMakeFiles/vector17.dir/vector17.cpp.o
+/usr/bin/ranlib libvector17.a

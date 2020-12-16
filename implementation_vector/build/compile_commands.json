@@ -1,0 +1,52 @@
+[
+{
+  "directory": "/home/davi/Documents/c++/projetos_curso/vetor/implementation_vector/build/googletest/googlemock",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-9   -isystem /home/davi/Documents/c++/projetos_curso/vetor/implementation_vector/googletest/googlemock/include -isystem /home/davi/Documents/c++/projetos_curso/vetor/implementation_vector/googletest/googlemock -isystem /home/davi/Documents/c++/projetos_curso/vetor/implementation_vector/googletest/googletest/include -isystem /home/davi/Documents/c++/projetos_curso/vetor/implementation_vector/googletest/googletest  -g   -Wall -Wshadow -Werror -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -o CMakeFiles/gmock_main.dir/src/gmock_main.cc.o -c /home/davi/Documents/c++/projetos_curso/vetor/implementation_vector/googletest/googlemock/src/gmock_main.cc",
+  "file": "/home/davi/Documents/c++/projetos_curso/vetor/implementation_vector/googletest/googlemock/src/gmock_main.cc"
+},
+{
+  "directory": "/home/davi/Documents/c++/projetos_curso/vetor/implementation_vector/build/googletest/googlemock",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-9   -I/home/davi/Documents/c++/projetos_curso/vetor/implementation_vector/googletest/googlemock/include -I/home/davi/Documents/c++/projetos_curso/vetor/implementation_vector/googletest/googlemock -isystem /home/davi/Documents/c++/projetos_curso/vetor/implementation_vector/googletest/googletest/include -isystem /home/davi/Documents/c++/projetos_curso/vetor/implementation_vector/googletest/googletest  -g   -Wall -Wshadow -Werror -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -o CMakeFiles/gmock.dir/src/gmock-all.cc.o -c /home/davi/Documents/c++/projetos_curso/vetor/implementation_vector/googletest/googlemock/src/gmock-all.cc",
+  "file": "/home/davi/Documents/c++/projetos_curso/vetor/implementation_vector/googletest/googlemock/src/gmock-all.cc"
+},
+{
+  "directory": "/home/davi/Documents/c++/projetos_curso/vetor/implementation_vector/build/googletest/googletest",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-9   -isystem /home/davi/Documents/c++/projetos_curso/vetor/implementation_vector/googletest/googletest/include -isystem /home/davi/Documents/c++/projetos_curso/vetor/implementation_vector/googletest/googletest  -g   -Wall -Wshadow -Werror -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -o CMakeFiles/gtest_main.dir/src/gtest_main.cc.o -c /home/davi/Documents/c++/projetos_curso/vetor/implementation_vector/googletest/googletest/src/gtest_main.cc",
+  "file": "/home/davi/Documents/c++/projetos_curso/vetor/implementation_vector/googletest/googletest/src/gtest_main.cc"
+},
+{
+  "directory": "/home/davi/Documents/c++/projetos_curso/vetor/implementation_vector/build/googletest/googletest",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-9   -I/home/davi/Documents/c++/projetos_curso/vetor/implementation_vector/googletest/googletest/include -I/home/davi/Documents/c++/projetos_curso/vetor/implementation_vector/googletest/googletest  -g   -Wall -Wshadow -Werror -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -o CMakeFiles/gtest.dir/src/gtest-all.cc.o -c /home/davi/Documents/c++/projetos_curso/vetor/implementation_vector/googletest/googletest/src/gtest-all.cc",
+  "file": "/home/davi/Documents/c++/projetos_curso/vetor/implementation_vector/googletest/googletest/src/gtest-all.cc"
+},
+{
+  "directory": "/home/davi/Documents/c++/projetos_curso/vetor/implementation_vector/build/vector",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-9    -g   -o CMakeFiles/vector19.dir/vector19.cpp.o -c /home/davi/Documents/c++/projetos_curso/vetor/implementation_vector/vector/vector19.cpp",
+  "file": "/home/davi/Documents/c++/projetos_curso/vetor/implementation_vector/vector/vector19.cpp"
+},
+{
+  "directory": "/home/davi/Documents/c++/projetos_curso/vetor/implementation_vector/build/vector",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-9    -g   -o CMakeFiles/vector18.dir/vector18.cpp.o -c /home/davi/Documents/c++/projetos_curso/vetor/implementation_vector/vector/vector18.cpp",
+  "file": "/home/davi/Documents/c++/projetos_curso/vetor/implementation_vector/vector/vector18.cpp"
+},
+{
+  "directory": "/home/davi/Documents/c++/projetos_curso/vetor/implementation_vector/build/vector",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-9    -g   -o CMakeFiles/vector17.dir/vector17.cpp.o -c /home/davi/Documents/c++/projetos_curso/vetor/implementation_vector/vector/vector17.cpp",
+  "file": "/home/davi/Documents/c++/projetos_curso/vetor/implementation_vector/vector/vector17.cpp"
+},
+{
+  "directory": "/home/davi/Documents/c++/projetos_curso/vetor/implementation_vector/build/test",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-9   -isystem /home/davi/Documents/c++/projetos_curso/vetor/implementation_vector/googletest/googletest/include -isystem /home/davi/Documents/c++/projetos_curso/vetor/implementation_vector/googletest/googletest  -g   -o CMakeFiles/vector18test.dir/vector18test.cpp.o -c /home/davi/Documents/c++/projetos_curso/vetor/implementation_vector/test/vector18test.cpp",
+  "file": "/home/davi/Documents/c++/projetos_curso/vetor/implementation_vector/test/vector18test.cpp"
+},
+{
+  "directory": "/home/davi/Documents/c++/projetos_curso/vetor/implementation_vector/build/test",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-9   -isystem /home/davi/Documents/c++/projetos_curso/vetor/implementation_vector/googletest/googletest/include -isystem /home/davi/Documents/c++/projetos_curso/vetor/implementation_vector/googletest/googletest  -g   -o CMakeFiles/vector19test.dir/vector19test.cpp.o -c /home/davi/Documents/c++/projetos_curso/vetor/implementation_vector/test/vector19test.cpp",
+  "file": "/home/davi/Documents/c++/projetos_curso/vetor/implementation_vector/test/vector19test.cpp"
+},
+{
+  "directory": "/home/davi/Documents/c++/projetos_curso/vetor/implementation_vector/build/test",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-9   -isystem /home/davi/Documents/c++/projetos_curso/vetor/implementation_vector/googletest/googletest/include -isystem /home/davi/Documents/c++/projetos_curso/vetor/implementation_vector/googletest/googletest  -g   -o CMakeFiles/vector17test.dir/vector17test.cpp.o -c /home/davi/Documents/c++/projetos_curso/vetor/implementation_vector/test/vector17test.cpp",
+  "file": "/home/davi/Documents/c++/projetos_curso/vetor/implementation_vector/test/vector17test.cpp"
+}
+]

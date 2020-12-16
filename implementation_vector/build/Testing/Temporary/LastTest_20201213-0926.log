@@ -1,0 +1,19 @@
+Start testing: Dec 13 12:26 MSK
+----------------------------------------------------------
+Unable to find executable: vector
+1/1 Testing: vector
+1/1 Test: vector
+Command: ""
+Directory: /home/davi/Documents/c++/projetos_curso/vetor/implementation_vector/build/test
+"vector" start time: 
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"vector" end time: Dec 13 12:26 MSK
+"vector" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Dec 13 12:26 MSK

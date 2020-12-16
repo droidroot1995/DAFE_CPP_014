@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/davi/Documents/c++/projetos_curso/vetor/implementation_vector/vector/vector18.cpp
+vector18.hpp
+/home/davi/Documents/c++/projetos_curso/vetor/implementation_vector/vector/vector18.hpp
+
+/home/davi/Documents/c++/projetos_curso/vetor/implementation_vector/vector/vector18.hpp
+initializer_list
+-
+
